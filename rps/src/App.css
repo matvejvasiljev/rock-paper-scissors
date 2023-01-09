@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url("../public/images/forest.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+h1 {
+  display: inline-block;
+  background: linear-gradient(90deg, rgba(255, 42, 114, 1) 0%, rgba(170, 104, 255, 1) 50%, rgba(255, 129, 45, 1) 100%);
+  background-clip: text;
+  color: rgba(0, 0, 0, 0);
+  text-align: center;
+  transform: translateY(-50%);
+  font-size: 60px;
+  font-family: 'Bangers', cursive;
+  font-weight: 200;
+  padding: 10px;
+  text-shadow: 0 10px 20px rgba(255, 155, 55, 0.55);
+}
+
+#game {
+  background-image: url("../public/images/landscape.svg");
+  background-size: cover;
+  width: 70%;
+  margin: auto;
+  margin-top: 100px;
+  border-radius: 15px;
+  box-shadow: 0 0 200px black;
+  text-align: center;
+}
+
+#hands img {
+  width: 30%;
+}
+
+#menu img {
+  background: linear-gradient(90deg, rgba(255, 42, 114, 1) 0%, rgba(170, 104, 255, 0.5) 50%, rgba(255, 42, 114, 1) 100%);
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
+  margin-left: 10px;
+  margin-right: 10px;
+  transition: 0.1s;
+  border: 3px solid transparent;
+  cursor: pointer;
+}
+
+#menu img:hover {
+  border-color: #ffffff55;
+  box-shadow: 0 0 50px #ffffff55;
+}
+
+#menu {
+  text-align: center;
+  transform: translateY(50%);
+}
