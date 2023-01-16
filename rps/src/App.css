@@ -10,20 +10,30 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+  overflow: hidden;
 }
 
 h1 {
   display: inline-block;
   background: linear-gradient(90deg, rgba(255, 42, 114, 1) 0%, rgba(170, 104, 255, 1) 50%, rgba(255, 129, 45, 1) 100%);
   background-clip: text;
+  background-size: 200% 100%;
   color: rgba(0, 0, 0, 0);
   text-align: center;
-  transform: translateY(-50%);
-  font-size: 60px;
+  font-size: 70px;
   font-family: 'Bangers', cursive;
   font-weight: 200;
   padding: 10px;
   text-shadow: 0 10px 20px rgba(255, 155, 55, 0.55);
+  position: relative;
+  z-index: 1;
+  transition: 0.5s;
+  transform: translateY(-50%) rotate(1deg);
+}
+
+h1:hover{
+  background-position: right;
+  transform: translateY(-50%) rotate(-1deg);
 }
 
 #game {
@@ -35,10 +45,77 @@ h1 {
   border-radius: 15px;
   box-shadow: 0 0 200px black;
   text-align: center;
+  position: relative;
+}
+
+h2 {
+  color: white;
+  font-family: 'Bangers', cursive;
+  font-size: 75px;
+  text-shadow: 0 0 25px rgb(255, 129, 45);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: 0.2s;
+}
+
+.visible{
+  animation: 1s 3 epicAppearance;
+}
+
+@keyframes epicAppearance{
+  0%{
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(5);
+  }
+  50%{
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100%{
+    opacity: 0;
+  }
+}
+
+#hands {
+  width: 100%;
+  /* overflow: hidden; */
+  float: left;
+  position: relative;
+  z-index: 1;
 }
 
 #hands img {
-  width: 30%;
+  width: 50%;
+  height: 500px;
+  opacity: 0;
+  pointer-events: none;
+  transition: 1s;
+}
+
+.handsVisible{
+  opacity: 1 !important;
+}
+
+.handsVisible:first-child{
+  transform: scale(1) rotate(90deg) !important;
+}
+
+.handsVisible:last-child{
+  transform: scaleY(1) scaleX(-1) rotate(90deg) !important;
+
+}
+
+#left {
+  float: left;
+  transform: scale(5) translateX(-50%);
+}
+
+#right {
+  float: right;
+  transform: scaleY(5) scaleX(-5) translateX(-50%);
 }
 
 #menu img {
@@ -61,4 +138,26 @@ h1 {
 #menu {
   text-align: center;
   transform: translateY(50%);
+  /* чтобы меню было под hands */
+  clear: both;
+}
+
+#gradient {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  border-radius: 15px;
+  opacity: 0;
+  transition: 1s;
+}
+
+.gradientLeft{
+  background: linear-gradient(90deg, rgba(78, 255, 0, 0.6) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 45, 45, 0.6) 100%);
+  opacity: 1 !important;
+}
+
+.gradientRight{
+  background: linear-gradient(-90deg, rgba(78, 255, 0, 0.6) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 45, 45, 0.6) 100%);
+  opacity: 1 !important;
 }
